@@ -17,48 +17,51 @@ import javax.servlet.http.HttpServletRequest;
 public class MainController {
 
 
+    private CommentService commentService;
 
-        @Autowired
-        CommentService commentService;
+    private PostService postService;
 
-        @Autowired
-        PostService postService;
+    private CategoryService categoryService;
 
-        @Autowired
-        CategoryService categoryService;
+    @Autowired
+    public MainController(CommentService commentService, PostService postService, CategoryService categoryService) {
+        this.commentService = commentService;
+        this.postService = postService;
+        this.categoryService = categoryService;
+    }
 
-        @GetMapping("/")
-        public String index(Model model) {
-            model.addAttribute("posts", postService.getRepository().findAll());
-            return "index";
-        }
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("posts", postService.getRepository().findAll());
+        return "index";
+    }
 
-        @GetMapping("/post/{id}")
-        public String post(@PathVariable("id") int id,
-                           Model model) {
-            model.addAttribute("post", postService.getRepository().findById(id).orElseThrow(IllegalStateException::new));
-            return "post";
-        }
+    @GetMapping("/post/{id}")
+    public String post(@PathVariable("id") int id,
+                       Model model) {
+        model.addAttribute("post", postService.getRepository().findById(id).orElseThrow(IllegalStateException::new));
+        return "post";
+    }
 
-        @PostMapping("/comment/{postId}")
-        public String addComment(@RequestParam("comment") String comment,
-                                 @RequestParam("author")  String author,
-                                 @PathVariable("postId") int postId){
-            commentService.addComment(author, comment, postId);
-            return "redirect:/post/" + postId;
-        }
+    @PostMapping("/comment/{postId}")
+    public String addComment(@RequestParam("comment") String comment,
+                             @RequestParam("author") String author,
+                             @PathVariable("postId") int postId) {
+        commentService.addComment(author, comment, postId);
+        return "redirect:/post/" + postId;
+    }
 
 
-        @GetMapping("/add/post")
-        public String addPost(Model model){
-            model.addAttribute("postForm", new PostForm());
-            model.addAttribute("categories", categoryService.getCategories());
-            return "addPost";
-        }
+    @GetMapping("/add/post")
+    public String addPost(Model model) {
+        model.addAttribute("postForm", new PostForm());
+        model.addAttribute("categories", categoryService.getCategories());
+        return "addPost";
+    }
 
-        @PostMapping("/add/post")
-        public String addPost(@ModelAttribute PostForm postForm, HttpServletRequest httpServletRequest){
-            postService.addPost(postForm, httpServletRequest.getRemoteHost());
-            return "redirect:/";
-        }
+    @PostMapping("/add/post")
+    public String addPost(@ModelAttribute PostForm postForm, HttpServletRequest httpServletRequest) {
+        postService.addPost(postForm, httpServletRequest.getRemoteHost());
+        return "redirect:/";
+    }
 }

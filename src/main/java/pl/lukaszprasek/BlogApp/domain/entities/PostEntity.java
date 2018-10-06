@@ -10,7 +10,6 @@ public class PostEntity {
     @Id
     @GeneratedValue
     private int id;
-
     private String title;
     private String article;
     private String author;

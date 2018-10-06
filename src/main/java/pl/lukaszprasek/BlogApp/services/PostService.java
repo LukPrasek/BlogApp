@@ -35,7 +35,6 @@ public class PostService {
         postEntity.setTitle(postForm.getTitle());
         postEntity.setComments(Collections.emptyList());
         postEntity.setUserIp(userIp);
-
         postRepository.save(postEntity);
     }
 

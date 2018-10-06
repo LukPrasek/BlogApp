@@ -7,7 +7,9 @@ import java.util.List;
 public class CategoryEntity {
     @Id
     @GeneratedValue
+    @Column(name = "category_id")
     private int id;
+    @Column(name = "category_name")
     private String name;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

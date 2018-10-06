@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 public class CommentEntity {
     @Id
     @GeneratedValue
+    @Column(name = "comment_id")
     private int id;
     private String content;
     private String author;
