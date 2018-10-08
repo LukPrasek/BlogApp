@@ -5,6 +5,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.lukaszprasek.BlogApp.domain.forms.CategoryForm;
 import pl.lukaszprasek.BlogApp.domain.forms.PostForm;
 import pl.lukaszprasek.BlogApp.services.CategoryService;
 import pl.lukaszprasek.BlogApp.services.CommentService;
@@ -16,11 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 @EnableAsync
 public class MainController {
 
-
     private CommentService commentService;
-
     private PostService postService;
-
     private CategoryService categoryService;
 
     @Autowired
@@ -64,4 +62,19 @@ public class MainController {
         postService.addPost(postForm, httpServletRequest.getRemoteHost());
         return "redirect:/";
     }
+
+    @GetMapping("add/category")
+    public String addCategory(Model model) {
+        model.addAttribute("categoryForm", new CategoryForm());
+        model.addAttribute("categories", categoryService.getCategories());
+        return "addCategory";
+
+    }
+
+    @PostMapping("/add/category")
+    public String addCategory(@ModelAttribute CategoryForm categoryForm) {
+        categoryService.addCategory(categoryForm);
+        return "redirect:/";
+    }
+
 }

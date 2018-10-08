@@ -8,7 +8,8 @@ import java.util.List;
 @Table(name = "post")
 public class PostEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
     private int id;
     private String title;
     private String article;

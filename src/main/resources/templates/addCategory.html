@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj kategorie</title>
+</head>
+<body style="border: 3px black solid">
+
+<div style="text-align: center;">
+
+    <form action="/add/category" method="post" th:object="${categoryForm}">
+        <input type="text" th:field="*{name}" placeholder="Tytuł">
+        <input type="submit" value="Wyślij"/>
+    </form>
+</div>
+<div >
+    <div id="category" th:each="category : ${categories}" style="background-color: grey">
+        <a th:text="${category.getId()}">
+        </a>
+        <strong style="text-align: left" th:text="${category.getName()}"></strong>
+</div>
+    <footer>
+        <a href="/">Powrót</a>
+    </footer>
+</div>
+</body>
+</html>

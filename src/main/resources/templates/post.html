@@ -12,7 +12,7 @@
     <div>
         <span th:text="${post.getArticle()}"></span>
     </div>
-    <strong th:text="${'Przez ' + post.getAuthor() + '  (' + post.getCategory().getName() + ')'}"></strong>
+    <strong th:text="${'Utworzony przez ' + post.getAuthor() + '  (' + post.getCategory().getName() + ')'}"></strong>
 
     <br/> <br/> <br/> <br/> <br/>
 
@@ -34,8 +34,6 @@
 
     <a href="/">Powrót</a>
 </div>
-
-
 
 </body>
 </html>
