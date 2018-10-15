@@ -1,0 +1,82 @@
+body {
+    padding: 1px;
+    font-size: 10px;
+    background-color: darkgrey;
+    font-family: 'Lora', 'Times New Roman', serif;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+
+body h1 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.post {
+    display: block;
+    border: paleturquoise;
+    background-color: lightgray;
+    width: 90%;
+    margin-left: 5%;
+    height: 200px;
+    font-size: 40px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 1%;
+    padding: 2px;
+
+}
+
+.author {
+    font-size: 25px;
+    color: darkgrey;
+    border: black;
+    height: 40px;
+    overflow: no-display;
+    margin-bottom: 1px;
+    margin-top: 0;
+}
+
+body footer {
+    position: page;
+    display: block;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: darkblue;
+    text-align: center;
+    border: 2px;
+}
+
+body footer div {
+    display: inline-block;
+    background-color: lightyellow;
+    font-size: 20px;
+    color: lightblue;
+    height: 30px;
+    overflow: no-display;
+    margin-top: 5px;
+    width: 90%;
+    position: relative;
+    border-color: black;
+}
+
+.footer-link-right {
+    float: right;
+    right: 0%;
+    position: absolute;
+    width: 200px;
+}
+
+.footer-link-left {
+    float: left;
+    left: 0%;
+    position: absolute;
+    width: 200px;
+}
+
+
+

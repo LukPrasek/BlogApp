@@ -11,6 +11,7 @@ import pl.lukaszprasek.BlogApp.domain.repositories.PostRepository;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.Optional;
+
 @Service
 public class PostService {
 
@@ -24,7 +25,6 @@ public class PostService {
         this.categoryRepository = categoryRepository;
     }
 
-    //@Async // zadanie asynchroniczne - przyspiesza zwrot strony, nie gwarantuje wykonania przed wyslaniem response do usera
     @Transactional
     public void addPost(PostForm postForm, String userIp) {
         Optional<CategoryEntity> categoryEntity = categoryRepository.findById(postForm.getCategory());
