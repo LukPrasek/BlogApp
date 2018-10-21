@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
     <title>Dodaj post</title>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" href="../static/style-Index.css" type="text/css">-->
 </head>
-<body>
-
-<div style="text-align: center;">
+<body class="addPost-body">
+<h1>Dodaj nowy post</h1>
+<div class="post-form">
     <form action="/add/post" method="post" th:object="${postForm}">
 
         <input type="text" th:field="*{title}" placeholder="Tytuł">
@@ -22,6 +23,6 @@
         <input type="submit" value="Wyślij"/>
     </form>
 </div>
-
+<footer class="footer">Powrot</footer>
 </body>
 </html>

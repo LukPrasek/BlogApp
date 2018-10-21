@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${post.getTitle()}"></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/post-style.css" type="text/css">
 </head>
 <body>
-<div  style="text-align: center;">
-    <h1 style="border: 2px red dot-dot-dash;" th:text="${post.getTitle()}"></h1>
+<div class="add-post">
+    <h1 th:text="${post.getTitle()}"></h1>
     <div>
         <span th:text="${post.getArticle()}"></span>
     </div>
@@ -22,7 +21,7 @@
         <input type="submit" value="Wyślij">
     </form>
     <br/>
-    <div style="border: 3px black solid">
+    <div >
         <div th:each="comment : ${post.getComments()}">
             <h4 th:text="${comment.getAuthor()}"></h4>
             <p th:text="${comment.getContent()}"></p>
@@ -31,8 +30,10 @@
     </div>
 
     <br/>
-
+<footer>
     <a href="/">Powrót</a>
+</footer>
+
 </div>
 
 </body>

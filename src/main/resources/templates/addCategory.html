@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Dodaj kategorie</title>
+    <!--<link rel="stylesheet" href="../static/style.css" media="screen" type="text/css">-->
 </head>
-<body style="border: 3px black solid">
+<body >
 
-<div style="text-align: center;">
+<div class="post">
 
     <form action="/add/category" method="post" th:object="${categoryForm}">
         <input type="text" th:field="*{name}" placeholder="Tytuł">
@@ -14,10 +15,10 @@
     </form>
 </div>
 <div >
-    <div id="category" th:each="category : ${categories}" style="background-color: grey">
+    <div id="category" th:each="category : ${categories}">
         <a th:text="${category.getId()}">
         </a>
-        <strong style="text-align: left" th:text="${category.getName()}"></strong>
+        <strong th:text="${category.getName()}"></strong>
 </div>
     <footer>
         <a href="/">Powrót</a>
